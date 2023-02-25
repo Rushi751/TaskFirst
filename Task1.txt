@@ -1,0 +1,183 @@
+1.Write a blog on Difference between HTTP1.1 vs HTTP2
+
+HTTP 1.1                                      HTTP2
+1.it usest works on the textual format       1.it works on the binary protocol
+2.it compress data by itself.                2.it uses HPACK for data compression.
+3.There is head of line blocking that        3.It allows multiplexing so one TCP 
+  blocks all the requests behind it            connection is required for multiple request.
+  until it doesn’t get its all resources
+4.It uses requests resource Inlining for     4.It uses PUSH frame by server that collects
+use getting multiple pages                    all multiple pages.
+5. it is a standard protocol                 5.a protocol for greater performance
+6.loads resources one after the other,       6. it is able to use a single TCP connection
+so if one resource cannot be loaded, it      to send multiple streams of data at once so that
+blocks all the other resources behind it      no one resource blocks any other resource.
+
+
+2.Write a blog about objects and its internal representation in Javascript
+Object :: In js,an object is a standalone entity,with properties and type.
+
+ we can create objects by two methods in js:
+ 1.By object literal 
+ 2.using new keyword/by creating instances of object directly
+
+ by object literal ::
+ syntax=object={key:value....}
+key and value is separated by colon(:)
+
+by creating instance of Object directly (using new keyword):
+ var objectName=new Object();
+
+ here we are using new keyword to create an object.
+
+
+3.Codekata practice
+Mathematics session::
+1.Given a number N, print yes if the number is a multiple of 7 else print no.
+Sample Testcase :
+INPUT
+49
+OUTPUT
+yes
+
+code (Logic)=>
+var N=userInput;
+   if(N%7==0){
+       console.log("yes")
+   }
+   else{
+       console.log("no")
+   }
+
+2.You are given a number ‘n’. You have to tell whether a number is great or not. A great number is a number whose sum of digits let (m) and product of digits let(j) when summed together gives the number back
+
+m+j=n
+
+ 
+
+Input Description:
+You are given a number n;
+
+Output Description:
+Print Great if a number is great else print the no
+
+Sample Input :
+59
+Sample Output :
+Great
+
+
+code (Logic)=>
+ var n=userInput;
+ var m=0;
+ var j=1;
+ var Ans=n;
+
+
+ //while(N>0){
+   // K=N%10;
+  
+    //m=m+K;
+    
+      //N=Math.floor(N/10);
+ //}
+ var K;
+  while(n>0){
+    K=n%10;
+    m=m+K;
+    j=j*K;
+    
+      n=Math.floor(n/10);
+ }
+
+  
+   if((m+j)==Ans){
+    console.log("Great")
+      }
+    else{
+    console.log("no")
+   }
+  
+
+3.Given a number N, print 'yes' if it is a multiple of 13 else print 'no'.
+Sample Testcase :
+INPUT
+26
+OUTPUT
+yes
+
+code (Logic)=>
+
+ var N=userInput;
+  if(N%13==0){
+      console.log("yes")
+  }
+  else{
+      console.log("no")
+  }
+
+
+4.In XYZ country there is rule that car’s engine no. depends upon car’ number plate. Engine no is sum of all the integers present on car’s Number plate.The issuing authority has hired you in order to provide engine no. to the cars.Your task is to develop an algorithm which takes input as in form of string(Number plate) and gives back
+
+Engine number.
+
+Input Description:
+You are given a string ’s’
+
+Output Description:
+Print the engine number
+
+Sample Input :
+HR05-AA-2669
+Sample Output :
+28
+
+code(logic)=>
+
+var n=userInput[0].split("");
+var z=[];
+for(var i=0;i<n.length;i++){
+  z.push(n[i]) 
+  //console.log(z[i])
+}
+var sum=0;
+for(var i=0;i<z.length;i++){
+    if(z[i]>=0){
+        sum=sum+parseInt(z[i])
+    }
+}
+console.log(sum)
+
+5.You are given a task to tell whether the number is pure or not. A pure number is a number whose sum of digits is multiple of 3.
+
+O(1) time and O(1) space
+
+Input Description:
+You are given a number n.
+
+Output Description:
+Print yes if it is pure else not
+
+Sample Input :
+13
+Sample Output :
+not
+
+
+code(logic)=>
+
+ var n=userInput;
+ var sum=0;
+ var m;
+ while(n>0){
+     m=n%10;
+     sum=sum+m;
+     n=Math.floor(n/10);
+     
+ }
+ if(sum%3==0){
+     console.log("yes")
+ }
+ else{
+     console.log("not")
+ }
